@@ -11,8 +11,8 @@ class MapRedWordCount(MRJob):
 
     def mapper(self, _, value):
         yield 'lines ', 1
-        yield 'words ', len(value.split())
-        yield 'chars ', len(value)
+        yield 'all words ', len(value.split())
+        yield 'characters ', len(value)
 
     def reducer(self, key, values):
         yield key, sum(values)
